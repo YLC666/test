@@ -1,0 +1,37 @@
+package swing.itcast.jc;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class SwingDemo {
+	
+	
+	public static void createGUI() {
+		JFrame frame = new JFrame("swing！！！！demo");//必须  创建窗口对象
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//必须  设置关闭方式
+		
+		Container contentPane = frame.getContentPane();//必须   获取容器
+		contentPane.setLayout(new FlowLayout());
+		contentPane.add(new JLabel("Hello , World!!!"));   
+		contentPane.add(new JButton("测试！！！"));
+		frame.setBounds(200, 400, 400, 300);//必须  设置窗口位置，大小
+		frame.setVisible(true);//必须  设置窗口可见
+		
+		
+	}
+	public static void main(String[] args) {
+		javax.swing.SwingUtilities.invokeLater(new Runnable() {//匿名内部类
+
+			@Override
+			public void run() {
+				 createGUI();//调用方法
+				
+			}
+			
+		});
+	}
+}
